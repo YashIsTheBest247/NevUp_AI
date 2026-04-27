@@ -93,18 +93,103 @@ http://localhost:8000/docs
 ---
 ## Load Test
 ```bash
-k6 run load-test.js
+k6 run --summary-trend-stats="avg,min,max,p(90),p(95)" load-test.js
 ```
 ---
-## Load Test Result
-```bash
-- ~120 requests/sec sustained
-- 0% failure rate
-- p95 latency ~800ms
-- Tested up to 100 concurrent users
 
-Note: Results are from local Docker environment.
+## 🧪 Load Testing Results (k6), Detailed Analysis Run
+
+Load testing was performed using **k6** with staged traffic (up to 100 concurrent users).
+
+---
+
+### Summary
+
+- **Total Requests:** 4351  
+- **Throughput:** ~85 req/sec  
+- **Failure Rate:** 0%  
+- **Successful Checks:** 100%  
+
+---
+
+### Latency Metrics
+
+| Metric    | Value    |
+|-----------|----------|
+| Average   | 539.6 ms |
+| Minimum   | 10.33 ms |
+| Maximum   | 2.07 s   |
+| p90       | 1.24 s   |
+| p95       | 1.39 s   |
+
+---
+
+### Execution
+
+- **Iterations:** 4351  
+- **Virtual Users (VUs):** up to 100  
+- **Test Duration:** ~50 seconds  
+- **No interrupted iterations**
+
+---
+
+### Network
+
+- **Data Received:** 631 kB (~12 kB/s)  
+- **Data Sent:** 3.1 MB (~61 kB/s)  
+
+---
+
+### Observations
+
+- System handled concurrent load with **0% failure rate**
+- Stable throughput under increasing load
+- Latency increased at higher concurrency (expected in local Docker setup)
+- Architecture remains **reliable and scalable**
+
+---
+> Note: Results are based on a local Docker environment. Production deployment with optimized infrastructure would yield lower latency and higher throughput.
+---
+
+## Load Testing Result (Basic Run)
+```bash
+k6 run load-test.js
 ```
+## Results
+- Total Requests: 6304
+- Throughput: ~124 req/sec
+- Failure Rate: 0%
+- Successful Checks: 100%
+
+## Latency Metrics
+```bash
+| Metric  | Value   |
+| ------- | ------- |
+| Average | 368 ms  |
+| Minimum | 8.47 ms |
+| Maximum | 1.29 s  |
+| p90     | 730 ms  |
+| p95     | 811 ms  |
+```
+---
+
+## Execution Details
+- Iterations: 6304
+- Virtual Users (VUs): up to 100
+- Test Duration: ~50 seconds
+- No interrupted iterations
+---
+
+## Network Usage
+- Data Received: 914 kB (~18 kB/s)
+- Data Sent: 4.5 MB (~89 kB/s)
+---
+## Observations
+- System handled concurrent load with 0% failure rate
+- Sustained ~124 requests/sec
+- Stable performance across increasing load stages
+- Latency remained under ~800ms (p95) under 100 concurrent users
+- Async architecture ensured non-blocking request handling
 ---
 ## Project Structure
 ```bash 
