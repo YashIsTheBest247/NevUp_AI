@@ -88,9 +88,8 @@ docker-compose up --build
 ```
 ---
 ## API Documentation
-```bash
 http://localhost:8000/docs
-```
+
 ---
 ## Load Test
 ```bash
