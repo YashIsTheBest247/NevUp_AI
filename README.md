@@ -224,3 +224,18 @@ DECISIONS.md
 3. DB read replicas
 4. ML-based behavioral scoring
 ---
+## 👉 Report:
+Link: [(https://drive.google.com/file/d/1aMQblpk3eLog9OkDCyNErxgl5ESHQPRp/view?usp=drivesdk)]
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a PR.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the **MIT License**.
+
+---
