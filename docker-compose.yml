@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  worker:
+    build: .
+    command: celery -A backend.services.queue.celery worker --loglevel=info
+    depends_on:
+      - redis
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: nevup
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
