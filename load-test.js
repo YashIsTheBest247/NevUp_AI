@@ -34,7 +34,7 @@ export default function () {
   const params = {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer your_token'
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNDEyZjIzNi00ZWRjLTQ3YTItOGY1NC04NzYzYTZlZDJjZTgiLCJpYXQiOjE3MTAwMDAwMDAsImV4cCI6MTk5OTk5OTk5OSwicm9sZSI6InRyYWRlciJ9.x5PYBb_YwoxFIa-lLXCcTGIsd1g1zqQlDihiUF_ebeA'
     },
   };
 
